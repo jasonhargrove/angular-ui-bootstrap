@@ -243,7 +243,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 
   this.customClass = function(date) {
-    return $scope.customClass({date: date, mode: $scope.datepickerMode});
+    return $scope.customClass({date: date, mode: $scope.datepickerMode, activeDate: self.activeDate});
   };
 
   // Split array into smaller arrays
