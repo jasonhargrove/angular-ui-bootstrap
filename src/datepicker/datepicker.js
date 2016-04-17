@@ -173,6 +173,8 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       dateParser.fromTimezone(new Date(ngModelCtrl.$modelValue), ngModelOptions.timezone) :
       dateParser.fromTimezone(new Date(), ngModelOptions.timezone);
 
+    this.todayDate = dateParser.fromTimezone(new Date(), ngModelOptions.timezone);
+
     ngModelCtrl.$render = function() {
       self.render();
     };
@@ -230,6 +232,10 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 
     if (self.activeDate && this.compare(dt.date, self.activeDate) === 0) {
       $scope.activeDt = dt;
+    }
+
+    if (this.compare(dt.date, self.todayDate) === 0) {
+      $scope.todayDt = dt;
     }
 
     return dt;

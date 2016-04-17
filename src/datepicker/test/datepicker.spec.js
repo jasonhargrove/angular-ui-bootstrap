@@ -312,6 +312,16 @@ describe('datepicker', function() {
       });
     });
 
+    it('should have a today date equal to the current date', function() {
+      var baseTime = new Date();
+      jasmine.clock().mockDate(baseTime);
+
+      element = $compile('<uib-datepicker ng-model="fooDate"></uib-datepicker')($rootScope);
+      $rootScope.$digest();
+
+      expect(element.controller('uibDatepicker').todayDate.getTime()).toEqual(baseTime.getTime());
+    });
+
     it('should support custom templates', function() {
       $templateCache.put('foo/bar.html', '<div>baz</div>');
 

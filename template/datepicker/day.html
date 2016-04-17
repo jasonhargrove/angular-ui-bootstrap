@@ -19,7 +19,8 @@
         <button type="button" class="btn btn-default btn-sm"
           uib-is-class="
             'btn-info' for selectedDt,
-            'active' for activeDt
+            'active' for activeDt,
+            'today' for todayDt
             on dt"
           ng-click="select(dt.date)"
           ng-disabled="::dt.disabled"
